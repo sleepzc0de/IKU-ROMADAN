@@ -15,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-Route::get('/', [FrontendController::class, 'grafik'])->name('grafik.iku');
 
+// FRONTENDS
+Route::get('/', [FrontendController::class, 'grafik', 'tabel'])->name('grafik.iku');
+Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1', 'tabel'])->name('kinerja_iku_q1');
+Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2', 'tabel'])->name('kinerja_iku_q2');
+Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3', 'tabel'])->name('kinerja_iku_q3');
+Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4', 'tabel'])->name('kinerja_iku_q4');
+
+
+// BACKEND
 Route::resource('_superadmin_', AdminController::class);
 
 // Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
