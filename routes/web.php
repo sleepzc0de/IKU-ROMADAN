@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // FRONTENDS
-Route::get('/', [FrontendController::class, 'grafik', 'tabel'])->name('grafik.iku');
-Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1', 'tabel'])->name('kinerja_iku_q1');
-Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2', 'tabel'])->name('kinerja_iku_q2');
-Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3', 'tabel'])->name('kinerja_iku_q3');
-Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4', 'tabel'])->name('kinerja_iku_q4');
+Route::get('/testframe', [FrontendController::class, 'testframe'])->name('frametest');
+Route::get('/', [FrontendController::class, 'grafik'])->name('grafik.iku');
+Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1'])->name('kinerja_iku_q1');
+Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2'])->name('kinerja_iku_q2');
+Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3'])->name('kinerja_iku_q3');
+Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4'])->name('kinerja_iku_q4');
 
 
 // BACKEND

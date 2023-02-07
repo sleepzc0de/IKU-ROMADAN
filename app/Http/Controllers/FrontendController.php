@@ -17,12 +17,14 @@ class FrontendController extends Controller
         $label_iku = $grafik->mapWithKeys(function ($item, $key) {
             return [$item->IKU => $item->IKU];
         });
+        // dd($label_iku);
         $target = $grafik->mapWithKeys(function ($item, $key) {
-            return [$item->QUARTAL_TARGET_3 => $item->QUARTAL_TARGET_3];
+            return [$item->KODE_SS => $item->TARGET_AKTUAL];
         });
+
         // dd($label_iku);
         $capaian = $grafik->mapWithKeys(function ($item, $key) {
-            return [$item->QUARTAL_CAPAIAN_3 => $item->QUARTAL_CAPAIAN_3];
+            return [$item->KODE_SS => $item->CAPAIAN_AKTUAL];
         });
         // dd($elections);
 
@@ -41,18 +43,55 @@ class FrontendController extends Controller
 
     public function kinerja_Q1()
     {
+        $query = Iku::select('*')->get();
+        // dd($query);
+        if (request()->ajax()) {
+            return datatables()->of($query)
+                ->rawColumns([])
+                ->addIndexColumn()
+                ->make(true);
+        }
         return view('kinerjaQ1');
     }
     public function kinerja_Q2()
     {
+        $query = Iku::select('*')->get();
+        // dd($query);
+        if (request()->ajax()) {
+            return datatables()->of($query)
+                ->rawColumns([])
+                ->addIndexColumn()
+                ->make(true);
+        }
         return view('kinerjaQ2');
     }
     public function kinerja_Q3()
     {
+        $query = Iku::select('*')->get();
+        // dd($query);
+        if (request()->ajax()) {
+            return datatables()->of($query)
+                ->rawColumns([])
+                ->addIndexColumn()
+                ->make(true);
+        }
         return view('kinerjaQ3');
     }
     public function kinerja_Q4()
     {
+        $query = Iku::select('*')->get();
+        // dd($query);
+        if (request()->ajax()) {
+            return datatables()->of($query)
+                ->rawColumns([])
+                ->addIndexColumn()
+                ->make(true);
+        }
         return view('kinerjaQ4');
+    }
+
+    public function testframe()
+    {
+        return view('test');
     }
 }

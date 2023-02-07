@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-body analytics-info">
                                 <h4 class="card-title text-center">Progres Capaian IKU <br> 2023</h4>
-                                <div id="basic-bar" class="w-100" style="height:400px;"></div>
+                                <div id="basic-bar" class="w-100" style="height:1000px;"></div>
                             </div>
                         </div>
                     </div>
@@ -30,8 +30,8 @@
                                                 <th>KODE SS/IKU</th>
                                                 <th>SASARAN STRATEGIS</th>
                                                 <th>IKU</th>
-                                                <th>TARGET Q1</th>
-                                                <th>REALISASI Q1</th>
+                                                <th>TARGET AKTUAL</th>
+                                                <th>REALISASI AKTUAL</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -70,8 +70,8 @@
         var myChart = echarts.init(document.getElementById('basic-bar'));
         
         var labels = Object.keys(label_iku);
-        var targets = Object.keys(target);
-        var capaians = Object.keys(capaian);
+        var targets = Object.values(target);
+        var capaians = Object.values(capaian);
         // console.log(labels);
 
         // specify chart configuration item and data
@@ -107,7 +107,11 @@
                 xAxis : [
                     {
                         type : 'category',
-                        data : labels
+                        data : labels,
+                        axisLabel: {
+                            rotate: 90,
+                            }
+                        
                     }
                 ],
                 yAxis : [
@@ -188,7 +192,7 @@
  *       Basic Table                   *
  ****************************************/
 $('#zero_config').DataTable({
-            // scrollY: "300px",
+            scrollY: "300px",
             scrollCollapse: true,
             paging: false,
             searching:false,
@@ -200,8 +204,8 @@ $('#zero_config').DataTable({
             {data: 'KODE_SS',name:'KODE_SS'},
             {data: 'SS',name:'SS'},
             {data: 'IKU',name:'IKU'},
-            {data: 'QUARTAL_TARGET_1',name:'QUARTAL_TARGET_1'},
-            {data: 'QUARTAL_CAPAIAN_1',name:'QUARTAL_CAPAIAN_1'},
+            {data: 'TARGET_AKTUAL',name:'TARGET_AKTUAL'},
+            {data: 'CAPAIAN_AKTUAL',name:'CAPAIAN_AKTUAL'},
             ],
             // language: {
             // lengthMenu: "Display _MENU_ records per page",

@@ -16,54 +16,14 @@ class AdminController extends Controller
     public function index()
     {
         $menuUsers = 'active';
-        $query = Berita::with(['kategori', 'status'])->select('*');
+        $query = Iku::select('*');
         if (request()->ajax()) {
             return datatables()->of($query)
-
-                ->addColumn('image_berita', function ($query) {
-                    $url = asset('storage/romadan_gambar_web/' . $query->image);
-                    return '<a href="' . $url . '"><img src="' . $url . '" border="0" width="100" class="img-rounded" align="center""/></a>';
-                })
-                ->addColumn('opsi', function ($query) {
-                    $preview = route('berita.show', encrypt($query->id));
-                    $edit = route('berita.edit', encrypt($query->id));
-                    $hapus = route('berita.destroy', encrypt($query->id));
-                    return '<div class="d-inline-flex">
-											<div class="dropdown">
-												<a href="#" class="text-body" data-bs-toggle="dropdown">
-													<i class="ph-list"></i>
-												</a>
-
-												<div class="dropdown-menu dropdown-menu-end">
-													<a href="' . $preview . '" class="dropdown-item">
-														<i class="ph-detective me-2"></i>
-														Preview
-													</a>
-													<a href="' . $edit . '" class="dropdown-item">
-														<i class="ph-note-pencil me-2"></i>
-														Edit
-													</a>
-													<form action="' . $hapus . '" method="POST">
-													' . @csrf_field() . '
-													' . @method_field('DELETE') . '
-													<button type="submit" name="submit" class="dropdown-item"> <i class="ph-trash me-2"></i> Hapus</button>
-													</form>
-												</div>
-											</div>
-										</div>
-                ';
-                })
-
-                ->editColumn('created_at', function ($query) {
-                    return date('d-M-Y H:i:s', strtotime($query->created_at));
-                })
-
-
                 ->rawColumns(['opsi', 'image_berita'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('backend.berita.index');
+        return view('_superadmin_.index');
     }
 
     /**
@@ -103,7 +63,19 @@ class AdminController extends Controller
                 'QUARTAL_CAPAIAN_3' => 'required',
                 'QUARTAL_TARGET_4' => 'required',
                 'QUARTAL_CAPAIAN_4' => 'required',
-                'PENJELESAN_CAPAIAN' => 'required',
+                'PENJELASAN_CAPAIAN' => 'required',
+                'TARGET_SEMESTERAN' => 'required',
+                'CAPAIAN_SEMESTERAN' => 'required',
+                'TARGET_SEMESTERAN' => 'required',
+                'TARGET_TAHUNAN' => 'required',
+                'CAPAIAN_TAHUNAN' => 'required',
+                'TARGET_AKTUAL' => 'required',
+                'CAPAIAN_AKTUAL' => 'required',
+                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => 'required',
+                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => 'required',
+                'PERMASALAHAN' => 'required',
+
+
             ]);
 
             // TAMPUNGAN REQUEST DATA DARI FORM
@@ -122,7 +94,17 @@ class AdminController extends Controller
                 'QUARTAL_CAPAIAN_3' => $request->QUARTAL_CAPAIAN_3,
                 'QUARTAL_TARGET_4' => $request->QUARTAL_TARGET_4,
                 'QUARTAL_CAPAIAN_4' => $request->QUARTAL_CAPAIAN_4,
-                'PENJELESAN_CAPAIAN' => $request->PENJELESAN_CAPAIAN,
+                'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
+                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
+                'CAPAIAN_SEMESTERAN' => $request->CAPAIAN_SEMESTERAN,
+                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
+                'TARGET_TAHUNAN' => $request->TARGET_TAHUNAN,
+                'CAPAIAN_TAHUNAN' => $request->CAPAIAN_TAHUNAN,
+                'TARGET_AKTUAL' => $request->TARGET_AKTUAL,
+                'CAPAIAN_AKTUAL' => $request->CAPAIAN_AKTUAL,
+                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => $request->KEGIATAN_YANG_TELAH_DILAKSANAKAN,
+                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => $request->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI,
+                'PERMASALAHAN' => $request->PERMASALAHAN,
 
             ];
 
@@ -143,10 +125,10 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $data = Berita::findOrFail(decrypt($id));
+        $data = Iku::findOrFail($id);
         // dd($data);
 
-        return view('backend.berita.show', compact(['data']));
+        return view('_superadmin_.show', compact(['data']));
     }
 
     /**
@@ -157,10 +139,10 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $kategori = ref_kategori::all();
-        $berita = Berita::with('kategori')->findOrFail(decrypt($id));
+        // $kategori = ref_kategori::all();
+        $iku = Iku::findOrFail($id);
         // dd($berita);
-        return view('backend.berita.edit', compact(['berita', 'kategori']));
+        return view('_superadmin_.edit', compact(['iku']));
     }
 
     /**
@@ -175,51 +157,68 @@ class AdminController extends Controller
         try {
             // VALIDASI DATA
             $request->validate([
-                'judul' => 'required',
-                'sub_judul' => 'required',
-                'kategori' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg,svg|max:1000',
-                'isi' => 'required',
+                'KODE_SS' => 'required',
+                'SS' => 'required',
+                'IKU' => 'required',
+                'KOMPONEN_PENGUKURAN' => 'required',
+                'PENJELASAN_IKU_KOMPONEN' => 'required',
+                'UIC' => 'required',
+                'QUARTAL_TARGET_1' => 'required',
+                'QUARTAL_CAPAIAN_1' => 'required',
+                'QUARTAL_TARGET_2' => 'required',
+                'QUARTAL_CAPAIAN_2' => 'required',
+                'QUARTAL_TARGET_3' => 'required',
+                'QUARTAL_CAPAIAN_3' => 'required',
+                'QUARTAL_TARGET_4' => 'required',
+                'QUARTAL_CAPAIAN_4' => 'required',
+                'PENJELASAN_CAPAIAN' => 'required',
+                'TARGET_SEMESTERAN' => 'required',
+                'CAPAIAN_SEMESTERAN' => 'required',
+                'TARGET_SEMESTERAN' => 'required',
+                'TARGET_TAHUNAN' => 'required',
+                'CAPAIAN_TAHUNAN' => 'required',
+                'TARGET_AKTUAL' => 'required',
+                'CAPAIAN_AKTUAL' => 'required',
+                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => 'required',
+                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => 'required',
+                'PERMASALAHAN' => 'required',
             ]);
-
-            // SLUG
-
-            $slug = Str::slug($request->judul);
 
             // TAMPUNGAN REQUEST DATA DARI FORM
             $data = [
-                'judul' => $request->judul,
-                'sub_judul' => $request->sub_judul,
-                'kategori' => $request->kategori,
-                'isi' => $request->isi,
-                'status' => 2,
-                'slug' => $slug
+                'KODE_SS' => $request->KODE_SS,
+                'SS' => $request->SS,
+                'IKU' => $request->IKU,
+                'KOMPONEN_PENGUKURAN' => $request->KOMPONEN_PENGUKURAN,
+                'PENJELASAN_IKU_KOMPONEN' => $request->PENJELASAN_IKU_KOMPONEN,
+                'UIC' => $request->UIC,
+                'QUARTAL_TARGET_1' => $request->QUARTAL_TARGET_1,
+                'QUARTAL_CAPAIAN_1' => $request->QUARTAL_CAPAIAN_1,
+                'QUARTAL_TARGET_2' => $request->QUARTAL_TARGET_2,
+                'QUARTAL_CAPAIAN_2' => $request->QUARTAL_CAPAIAN_2,
+                'QUARTAL_TARGET_3' => $request->QUARTAL_TARGET_3,
+                'QUARTAL_CAPAIAN_3' => $request->QUARTAL_CAPAIAN_3,
+                'QUARTAL_TARGET_4' => $request->QUARTAL_TARGET_4,
+                'QUARTAL_CAPAIAN_4' => $request->QUARTAL_CAPAIAN_4,
+                'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
+                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
+                'CAPAIAN_SEMESTERAN' => $request->CAPAIAN_SEMESTERAN,
+                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
+                'TARGET_TAHUNAN' => $request->TARGET_TAHUNAN,
+                'CAPAIAN_TAHUNAN' => $request->CAPAIAN_TAHUNAN,
+                'TARGET_AKTUAL' => $request->TARGET_AKTUAL,
+                'CAPAIAN_AKTUAL' => $request->CAPAIAN_AKTUAL,
+                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => $request->KEGIATAN_YANG_TELAH_DILAKSANAKAN,
+                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => $request->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI,
+                'PERMASALAHAN' => $request->PERMASALAHAN,
 
             ];
-            if ($request->hasFile('image')) {
-                $request->validate([
-                    'image' => 'image|mimes:jpeg,png,jpg,svg|max:1000',
-                ], [
-                    'image.mimes' => 'Gambar hanya diperbolehkaan berekstensi JPEG, JPG, PNG, SVG',
-                ]);
 
-                //UPLOAD IMAGE
-                $image = $request->file('image');
-                $image->storeAs('public/romadan_gambar_web', $image->hashName());
-
-                $data_gambar = Berita::findOrFail(decrypt($id));
-                File::delete(public_path('storage/romadan_gambar_web/') . $data_gambar->image);
-
-                $data = [
-                    'image' => $image->hashName(),
-                ];
-            }
-
-            Berita::findOrFail(decrypt($id))->update($data);
+            Iku::findOrFail($id)->update($data);
             // $berita = Berita::find($id)->update($data);
-            return redirect()->route('berita.index')->with('success', "Berita $request->judul berhasil diupdate!");
+            return redirect()->route('_superadmin_.index')->with('success', "IKU berhasil diupdate!");
         } catch (Exception $e) {
-            return redirect()->route('berita.index')->with(['failed' => 'Data Berita Gagal Di Update! error :' . $e->getMessage()]);
+            return redirect()->route('_superadmin_.index')->with(['failed' => 'Data IKU Gagal Di Update! error :' . $e->getMessage()]);
         }
     }
 
@@ -232,95 +231,10 @@ class AdminController extends Controller
     public function destroy($id)
     {
         try {
-            $data = [
-                'status' => 3,
-            ];
-            Berita::findOrFail(decrypt($id))->update($data);
-            Berita::findOrFail(decrypt($id))->delete($data);
-            return redirect()->route('berita.index')->with('success', "Berita berhasil dihapus!");
+            Iku::findOrFail($id)->delete();
+            return redirect()->route('_superadmin_.index')->with('success', "IKU berhasil dihapus!");
         } catch (Exception $e) {
-            return redirect()->route('berita.index')->with(['failed' => 'Data Yang Dihapus Tidak Ada ! error :' . $e->getMessage()]);
-        }
-    }
-
-    public function beritaSampah(Request $request)
-    {
-        $query = Berita::onlyTrashed()->with(['kategori', 'status']);
-        if (request()->ajax()) {
-            return datatables()->of($query)
-                ->addColumn('image_berita', function ($query) {
-                    $url = asset('storage/romadan_gambar_web/' . $query->image);
-                    return '<a href="' . $url . '"><img src="' . $url . '" border="0" width="100" class="img-rounded" align="center""/></a>';
-                })
-                ->addColumn('opsi', function ($query) {
-                    // $preview = route('berita.show', $query->id);
-                    $restore = route('berita.restore', encrypt($query->id));
-                    $paksahapus = route('berita.force-delete', encrypt($query->id));
-                    return '<div class="d-inline-flex">
-											<div class="dropdown">
-												<a href="#" class="text-body" data-bs-toggle="dropdown">
-													<i class="ph-list"></i>
-												</a>
-
-												<div class="dropdown-menu dropdown-menu-end">
-													<form action="' . $restore . '" method="POST">
-													' . @csrf_field() . '
-													<button type="submit" name="submit" class="dropdown-item"> <i class="ph-trash me-2"></i> Restore</button>
-													</form>
-													<form action="' . $paksahapus . '" method="POST">
-													' . @csrf_field() . '
-													' . @method_field('DELETE') . '
-													<button type="submit" name="submit" class="dropdown-item"> <i class="ph-trash me-2"></i> Paksa Hapus</button>
-													</form>
-												</div>
-											</div>
-										</div>
-                ';
-                })
-                ->rawColumns(['opsi', 'image_berita'])
-                ->addIndexColumn()
-                ->make(true);
-        }
-
-        return view('backend.berita.sampah', compact('query'));
-    }
-
-    public function restore($id)
-    {
-        try {
-            $data = [
-                'status' => 2,
-            ];
-            Berita::onlyTrashed()->findOrFail(decrypt($id))->update($data);
-            Berita::onlyTrashed()->findOrFail(decrypt($id))->restore();
-            return redirect()->route('berita.sampah')->with('success', "Data Berita berhasil direstore!, silahkan cek pada berita aktif yah guys!");
-        } catch (Exception $e) {
-            return redirect()->route('berita.sampah')->with(['failed' => 'Data Berita GAGAL di Restore ! error :' . $e->getMessage()]);
-        }
-    }
-
-    public function restoreAll()
-    {
-        try {
-            $data = [
-                'status' => 2,
-            ];
-            Berita::onlyTrashed()->update($data);
-            Berita::onlyTrashed()->restore();
-            return redirect()->route('berita.sampah')->with('success', "Semua Data Berita berhasil direstore!, silahkan cek pada berita aktif yah guys!");
-        } catch (Exception $e) {
-            return redirect()->route('berita.sampah')->with(['failed' => 'Semua Data Berita GAGAL di Restore ! error :' . $e->getMessage()]);
-        }
-    }
-    public function forceDelete($id)
-    {
-        try {
-            $data_gambar = Berita::withTrashed()->findOrFail(decrypt($id));
-            File::delete(public_path('storage/romadan_gambar_web/') . $data_gambar->image);
-            Berita::withTrashed()->findOrFail(decrypt($id))->forceDelete();
-            return redirect()->route('berita.sampah')->with('success', "Data Berhasil dihapus PERMANEN");
-        } catch (Exception $e) {
-            return redirect()->route('berita.sampah')->with(['failed' => 'Data GAGAL dihapus Permanen ! error :' . $e->getMessage()]);
+            return redirect()->route('_superadmin_.index')->with(['failed' => 'Data Yang Dihapus Tidak Ada ! error :' . $e->getMessage()]);
         }
     }
 }

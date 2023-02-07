@@ -40,3 +40,4 @@
         }, false);
     })();
     </script>
+    @yield('script')
