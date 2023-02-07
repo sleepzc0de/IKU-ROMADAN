@@ -11,7 +11,7 @@
                         <div class="card">
                             <div class="card-body analytics-info">
                                 <h4 class="card-title text-center">Progres Capaian IKU <br> 2023</h4>
-                                <div id="basic-bar" style="height:400px;"></div>
+                                <div id="basic-bar" class="w-100" style="height:400px;"></div>
                             </div>
                         </div>
                     </div>
@@ -91,6 +91,7 @@
 
                 legend: {
                     data:['Target','Capaian'],
+                    bottom: -5
                 },
                 toolbox: {
                     show : true,
