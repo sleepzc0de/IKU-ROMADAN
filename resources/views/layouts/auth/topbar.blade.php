@@ -11,24 +11,25 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="{{route('_superadmin_.index')}}">
+                    <a class="navbar-brand" href="{{url('/')}}">
                         <!-- Logo icon -->
                         <b class="logo-icon">
+                            <h2>DI</h2>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                             {{-- <img src="{{asset('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" /> --}}
                             <!-- Light Logo icon -->
                             {{-- <img src="{{asset('assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" /> --}}
-                            <h2>DI</h2>
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
+
+                            <h3>DASHBOARD IKU</h3>
                             <!-- dark Logo text -->
-                            {{-- <img src="{{asset('assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" /> --}}
+                            {{-- <img src="{{asset('assets/images/romadan/logo_4.png')}}" alt="homepage" class="dark-logo w-100" /> --}}
                             <!-- Light Logo text -->
-                            {{-- <img src="{{asset('assets/images/logo-light-text.png')}}" class="light-logo" alt="homepage" /> --}}
-                              <h3>DASHBOARD IKU</h3>
+                            {{-- <img src="{{asset('assets/images/romadan/logo_3.png')}}" class="light-logo" alt="homepage" width="180px" /> --}}
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -55,6 +56,7 @@
                                 <i class="sl-icon-menu font-20"></i>
                             </a>
                         </li>
+        
 
 
                     </ul>
@@ -62,42 +64,7 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <img src="{{asset('assets/images/users/1.jpg')}}" alt="user" class="rounded-circle" width="31">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <span class="with-arrow">
-                                    <span class="bg-primary"></span>
-                                </span>
-                                <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
-                                    <div class="">
-                                        <img src="{{asset('assets/images/users/1.jpg')}}" alt="user" class="img-circle" width="60">
-                                    </div>
-                                    <div class="m-l-10">
-                                        <h4 class="m-b-0">Steave Jobs</h4>
-                                        <p class=" m-b-0">varun@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
-                                <div class="dropdown-divider"></div>
-                                <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item">
-                                    <i class="ti-settings m-r-5 m-l-5"></i> Logout</a>
-                                </button>
-                                </form>
-                            </div>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+                        
                     </ul>
                 </div>
             </nav>

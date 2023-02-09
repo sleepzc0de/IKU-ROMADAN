@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4'])->name('kine
 
 
 // BACKEND
-Route::resource('_superadmin_', AdminController::class);
+Route::resource('_superadmin_', AdminController::class)->middleware('auth');
 
 // Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
 //     // USERS
@@ -39,3 +40,10 @@ Route::resource('_superadmin_', AdminController::class);
 //     Route::delete('/{beritum}/force-delete', [BeritaController::class, 'forceDelete'])->name('berita.force-delete');
 //     Route::post('/restore-all', [BeritaController::class, 'restoreAll'])->name('berita.restore-all');
 // });
+
+// Auth::routes();
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);

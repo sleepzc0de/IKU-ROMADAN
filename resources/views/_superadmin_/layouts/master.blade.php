@@ -37,7 +37,7 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-         @include('_superadmin_.layouts.customizer')
+         {{-- @include('_superadmin_.layouts.customizer') --}}
     <div class="chat-windows"></div>
     @include('_superadmin_.layouts.tail')
 </body>

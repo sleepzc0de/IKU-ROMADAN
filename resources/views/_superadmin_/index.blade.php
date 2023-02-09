@@ -9,7 +9,7 @@
                     <div class="col-12">
                         <div class="card">
                              <div class="card-body text-center">
-                          <h1>List Berita Romadan</h1>
+                          <h1>List IKU Romadan</h1>
                            @include('_superadmin_.layouts.session_notif')
 						</div>
                             <div class="card-body">
@@ -22,6 +22,7 @@
                                                 <th>IKU</th>
                                                 <th>TARGET AKTUAL</th>
                                                 <th>REALISASI AKTUAL</th>
+                                                <th>AKSI</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -55,14 +56,20 @@
 $('#zero_config').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'excel', 'pdf',
+                {
+                text: '<i class="mdi mdi-10px mdi-file-excel-box"></i> Tambah IKU',
+                className: 'btn btn-outline-warning btn-rounded waves-effect waves-light',
+                action: function(e, dt, button, config) {
+                    window.location = "{{route('_superadmin_.create')}}";
+                }
+            },
             ],
             scrollY: "300px",
             scrollX: true,
             scrollCollapse: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('grafik.iku') }}",
+            ajax: "{{ route('_superadmin_.index') }}",
             columns: [
             // { data:'DT_RowIndex', name:'DT_RowIndex', width:'10px',orderable:false,searchable:false},
             {data: 'KODE_SS',name:'KODE_SS'},
@@ -70,6 +77,7 @@ $('#zero_config').DataTable({
             {data: 'IKU',name:'IKU'},
             {data: 'TARGET_AKTUAL',name:'TARGET_AKTUAL'},
             {data: 'CAPAIAN_AKTUAL',name:'CAPAIAN_AKTUAL'},
+            {data: 'opsi', name:'opsi', orderable:false, searchable:false},
             ],
             // language: {
             // lengthMenu: "Display _MENU_ records per page",
@@ -80,7 +88,7 @@ $('#zero_config').DataTable({
             // search:"Cari Data"
             //  }
 });
-$('.buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+// $('.buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
 </script>
 
 

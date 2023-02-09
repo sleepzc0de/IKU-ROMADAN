@@ -15,7 +15,7 @@ class FrontendController extends Controller
         //     return [$item->IKU => $item->QUARTAL_TARGET_3];
         // });
         $label_iku = $grafik->mapWithKeys(function ($item, $key) {
-            return [$item->IKU => $item->IKU];
+            return [$item->KODE_SS => $item->IKU];
         });
         // dd($label_iku);
         $target = $grafik->mapWithKeys(function ($item, $key) {

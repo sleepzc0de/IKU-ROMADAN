@@ -19,7 +19,17 @@ class AdminController extends Controller
         $query = Iku::select('*');
         if (request()->ajax()) {
             return datatables()->of($query)
-                ->rawColumns(['opsi', 'image_berita'])
+                ->addColumn('opsi', function ($query) {
+                    $preview = route('_superadmin_.show', $query->id);
+                    $edit = route('_superadmin_.edit', $query->id);
+                    $hapus = route('_superadmin_.destroy', $query->id);
+                    return '<div class="d-inline-flex">
+                    <a href="' . $edit . '"><button type="button" class="btn waves-effect waves-light btn-dark">Edit</button></a>
+                    
+                    </div>
+                ';
+                })
+                ->rawColumns(['opsi',])
                 ->addIndexColumn()
                 ->make(true);
         }

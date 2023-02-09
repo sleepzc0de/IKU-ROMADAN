@@ -368,7 +368,8 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <button class="btn btn-primary mt-4" type="submit">Kirim</button>
+                                  <button class="btn btn-block btn-success mt-4" type="submit">UPDATE</button>
+                                  <a href="{{route('_superadmin_.index')}}"><button class="btn btn-block btn-danger mt-2">KEMBALI</button></a>
                                 </form>
                             </div>
                     </div>
