@@ -36,7 +36,7 @@ class FrontendController extends Controller
                 ->addColumn('opsi', function ($query) {
                     // $data = $query->find($query->id)->firstOrFail();
                     // $data = Iku::where('id', $query->id)->first();
-                    $preview = route('detail-kinerja', $query->id);
+                    // $preview = route('detail-kinerja', $query->id);
                     return '<!-- sample modal content -->
                                 <div id="myModal_' . $query->id . '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
