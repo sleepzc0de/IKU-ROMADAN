@@ -25,6 +25,12 @@ class AdminController extends Controller
                     $hapus = route('_superadmin_.destroy', $query->id);
                     return '<div class="d-inline-flex">
                     <a href="' . $edit . '"><button type="button" class="btn waves-effect waves-light btn-dark">Edit</button></a>
+
+                    <form class="ml-2" action="' . $hapus . '" method="POST">
+													' . @csrf_field() . '
+													' . @method_field('DELETE') . '
+													<button type="button" class="btn waves-effect waves-light btn-danger">Hapus</button>
+													</form>
                     
                     </div>
                 ';

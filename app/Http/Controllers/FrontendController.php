@@ -29,11 +29,71 @@ class FrontendController extends Controller
         // dd($elections);
 
 
-        $query = Iku::select('*')->get();
+        $query = Iku::select('*');
         // dd($query);
         if (request()->ajax()) {
             return datatables()->of($query)
-                ->rawColumns([])
+                ->addColumn('opsi', function ($query) {
+                    // $data = $query->find($query->id)->firstOrFail();
+                    // $data = Iku::where('id', $query->id)->first();
+                    $preview = route('detail-kinerja', $query->id);
+                    return '<!-- sample modal content -->
+                                <div id="myModal_' . $query->id . '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 style="text-align-center" class="modal-title" id="myModalLabel">Detail Indikator Kinerja Utama</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                            <label  for="NamaIKU">Nama IKU</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
+
+                                            <label class="mt-2" for="NamaIKU">Komponen Pengukuran</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled>
+
+
+                                            <label class="mt-2" for="NamaIKU">Penjelasan IKU</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_IKU_KOMPONEN . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">UIC</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->UIC . '" disabled>
+
+                                            <label class="mt-2" for="NamaIKU">Target Q1</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_1 . '" disabled>
+
+                                             <label class="mt-2" for="NamaIKU">Target Q2</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_2 . '" disabled>
+
+                                             <label class="mt-2" for="NamaIKU">Target Q3</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_3 . '" disabled>
+
+                                             <label class="mt-2" for="NamaIKU">Target Q4</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_4 . '" disabled>
+
+                                             <label class="mt-2" for="NamaIKU">Penjelasan Capaian</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_CAPAIAN . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">Permasalahan</label>
+                                              <textarea class="form-control" rows="3" placeholder="' . $query->PERMASALAHAN . '" disabled></textarea>
+                                               
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                                <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><span class="mdi mdi-book-open mdi-dark"></span>
+</a>
+                                
+                ';
+                })
+                ->rawColumns(['opsi'])
                 ->addIndexColumn()
                 ->make(true);
         }

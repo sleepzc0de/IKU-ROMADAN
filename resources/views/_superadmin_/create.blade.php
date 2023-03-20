@@ -222,7 +222,8 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <button class="btn btn-primary mt-4" type="submit">Kirim</button>
+                                  <button class="btn btn-block btn-primary mt-4" type="submit">Kirim</button>
+                                  <a href="{{route('_superadmin_.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
                                 </form>
                             </div>
                     </div>

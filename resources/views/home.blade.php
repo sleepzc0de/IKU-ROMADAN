@@ -2,6 +2,7 @@
 
 @section('css')
  <link href="{{asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+ 
 @endsection
 
 
@@ -32,6 +33,7 @@
                                                 <th>IKU</th>
                                                 <th>TARGET AKTUAL</th>
                                                 <th>REALISASI AKTUAL</th>
+                                                <th>DETAIL</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -192,6 +194,7 @@
  *       Basic Table                   *
  ****************************************/
 $('#zero_config').DataTable({
+            bInfo : false,
             scrollY: "300px",
             scrollCollapse: true,
             paging: false,
@@ -206,6 +209,8 @@ $('#zero_config').DataTable({
             {data: 'IKU',name:'IKU'},
             {data: 'TARGET_AKTUAL',name:'TARGET_AKTUAL'},
             {data: 'CAPAIAN_AKTUAL',name:'CAPAIAN_AKTUAL'},
+             {data: 'opsi',name:'opsi',orderable:false,searchable:false},
+            
             ],
             // language: {
             // lengthMenu: "Display _MENU_ records per page",

@@ -24,6 +24,8 @@ Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1'])->name('kine
 Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2'])->name('kinerja_iku_q2');
 Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3'])->name('kinerja_iku_q3');
 Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4'])->name('kinerja_iku_q4');
+Route::get('/detail/{kinerja}', [FrontendController::class, 'grafik'])->name('detail-kinerja');
+
 
 
 // BACKEND

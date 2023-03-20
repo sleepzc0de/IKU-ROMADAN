@@ -5004,7 +5004,7 @@ a.close.disabled {
   line-height: 1.5; }
 
 .modal-body {
-  position: relative;
+  position: absolute;
   flex: 1 1 auto;
   padding: 1rem; }
 
