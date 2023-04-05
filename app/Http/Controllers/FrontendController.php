@@ -100,7 +100,7 @@ class FrontendController extends Controller
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q4</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN41 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN_4 . '" disabled>
                                             </div>
                                             </div>
                                            
