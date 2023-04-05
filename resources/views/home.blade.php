@@ -25,7 +25,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered w-100" style="text-align: center">
+                                    <table id="zero_config" class="table table-striped table-bordered" style="text-align: center">
                                         <thead >
                                             <tr>
                                                 <th>KODE SS/IKU</th>

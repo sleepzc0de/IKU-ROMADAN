@@ -38,8 +38,8 @@ class FrontendController extends Controller
                     // $data = Iku::where('id', $query->id)->first();
                     // $preview = route('detail-kinerja', $query->id);
                     return '<!-- sample modal content -->
-                                <div id="myModal_' . $query->id . '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
+                                <div id="myModal_' . $query->id . '" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4 style="text-align-center" class="modal-title" id="myModalLabel">Detail Indikator Kinerja Utama</h4>
@@ -51,7 +51,7 @@ class FrontendController extends Controller
                                             <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
 
                                             <label class="mt-2" for="NamaIKU">Komponen Pengukuran</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled></textarea>
 
 
                                             <label class="mt-2" for="NamaIKU">Penjelasan IKU</label>
