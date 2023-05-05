@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('SS')->nullable();
             $table->string('KODE_SS')->nullable();
             $table->string('IKU')->nullable();
+            $table->text('DEFINISI_IKU')->nullable();
+            $table->text('FORMULA_IKU')->nullable();
             $table->text('KOMPONEN_PENGUKURAN')->nullable();
             $table->text('PENJELASAN_IKU_KOMPONEN')->nullable();
             $table->string('UIC')->nullable();
@@ -39,6 +41,15 @@ return new class extends Migration
             $table->text('KEGIATAN_YANG_TELAH_DILAKSANAKAN')->nullable();
             $table->text('RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI')->nullable();
             $table->text('PERMASALAHAN')->nullable();
+            $table->string('FLAG_KOMPONEN')->nullable();
+            $table->unsignedFloat('TARGET_Q1')->nullable();
+            $table->unsignedFloat('TARGET_Q2')->nullable();
+            $table->unsignedFloat('TARGET_Q3')->nullable();
+            $table->unsignedFloat('TARGET_Q4')->nullable();
+            $table->unsignedFloat('CAPAIAN_Q1')->nullable();
+            $table->unsignedFloat('CAPAIAN_Q2')->nullable();
+            $table->unsignedFloat('CAPAIAN_Q3')->nullable();
+            $table->unsignedFloat('CAPAIAN_Q4')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
