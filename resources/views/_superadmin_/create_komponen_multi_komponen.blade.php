@@ -195,7 +195,7 @@
                                   <button class="btn btn-block btn-primary mt-4" type="submit">Kirim</button>
                                   
                                 </form>
-                                <a href="{{route('_superadmin_.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
+                                <a href="{{route('home-admin.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
                             </div>
                     </div>
 @endsection

@@ -2,6 +2,7 @@
 
 @section('css')
  <link href="{{asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="{{asset('assets/extra-libs/prism/prism.css')}}">
  
 @endsection
 
@@ -60,6 +61,9 @@
 @section('script')
    <!-- This Page JS -->
     <script src="{{asset('assets/libs/echarts/dist/echarts-en.min.js')}}"></script>
+     <!-- This Page JS -->
+     
+    <script src="{{asset('assets/extra-libs/prism/prism.js')}}"></script>
     {{-- <script src="{{asset('dist/js/pages/echarts/bar/bar.js')}}"></script> --}}
 
     <script>

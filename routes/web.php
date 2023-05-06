@@ -31,30 +31,24 @@ Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4'])->name('kine
 
 // BACKEND
 
-Route::group(
-    ['prefix' => '_superadmin_', 'middleware' => ['auth']],
-    function () {
-    }
-);
-Route::resource('_superadmin_', AdminController::class)->middleware('auth');
-Route::resource('satu_komponen', SatuKomponenController::class)->middleware('auth');
-Route::resource('multi_komponen', MultiKomponenController::class)->middleware('auth');
-Route::get('/create-satu-komponen-admin-iku', [AdminController::class, 'satu_komponen_iku_admin'])->middleware('auth')->name('satu_komponen_iku_admin');
-Route::get('/create-multi-komponen-admin-iku', [AdminController::class, 'multi_komponen_iku_admin'])->middleware('auth')->name('multi_komponen_iku_admin');
-Route::get('/create-multi-komponen-admin-detail/{id}', [AdminController::class, 'multi_komponen_detail_admin'])->middleware('auth')->name('multi_komponen_detail_admin');
-Route::post('/create-multi-komponen-admin-detail', [AdminController::class, 'store_komponen_detail'])->middleware('auth')->name('multi_komponen_detail_admin_add');
+// Route::group(
+//     ['prefix' => '_superadmin_', 'middleware' => ['auth']],
+//     function () {
+//     }
+// );
 
-// Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
-//     // USERS
-//     Route::resource('users', UserController::class);
+Route::group(['prefix' => '_superadmin_', 'middleware' => ['auth']], function () {
 
-//     // BERITA
-//     Route::resource('berita', BeritaController::class);
-//     Route::get('/berita-sampah', [BeritaController::class, 'beritaSampah'])->name('berita.sampah');
-//     Route::post('/{beritum}/restore', [BeritaController::class, 'restore'])->name('berita.restore');
-//     Route::delete('/{beritum}/force-delete', [BeritaController::class, 'forceDelete'])->name('berita.force-delete');
-//     Route::post('/restore-all', [BeritaController::class, 'restoreAll'])->name('berita.restore-all');
-// });
+    Route::resource('home-admin', AdminController::class)->middleware('auth');
+    Route::resource('satu_komponen', SatuKomponenController::class)->middleware('auth');
+    Route::resource('multi_komponen', MultiKomponenController::class)->middleware('auth');
+    Route::get('/create-satu-komponen-admin-iku', [AdminController::class, 'satu_komponen_iku_admin'])->middleware('auth')->name('satu_komponen_iku_admin');
+    Route::get('/create-multi-komponen-admin-iku', [AdminController::class, 'multi_komponen_iku_admin'])->middleware('auth')->name('multi_komponen_iku_admin');
+    Route::get('/create-multi-komponen-admin-detail/{id}', [AdminController::class, 'multi_komponen_detail_admin'])->middleware('auth')->name('multi_komponen_detail_admin');
+    Route::post('/create-multi-komponen-admin-detail', [AdminController::class, 'store_komponen_detail'])->middleware('auth')->name('multi_komponen_detail_admin_add');
+});
+
+
 
 // Auth::routes();
 Auth::routes([

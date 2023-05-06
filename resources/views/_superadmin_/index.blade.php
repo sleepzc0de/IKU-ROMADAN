@@ -111,7 +111,7 @@ $('#zero_config').DataTable({
                 text: '<i class="mdi mdi-10px mdi-file-excel-box"></i> Tambah IKU',
                 className: 'btn btn-outline-warning btn-rounded waves-effect waves-light',
                 action: function(e, dt, button, config) {
-                    window.location = "{{route('_superadmin_.create')}}";
+                    window.location = "{{route('home-admin.create')}}";
                 }
             },
             ],
@@ -120,7 +120,7 @@ $('#zero_config').DataTable({
             scrollCollapse: true,
             processing: true,
             serverSide: true,
-            ajax: "{{ route('_superadmin_.index') }}",
+            ajax: "{{ route('home-admin.index') }}",
             columns: [
             // { data:'DT_RowIndex', name:'DT_RowIndex', width:'10px',orderable:false,searchable:false},
             {data: 'KODE_SS',name:'KODE_SS'},

@@ -34,10 +34,17 @@ class FrontendController extends Controller
         if (request()->ajax()) {
             return datatables()->of($query)
                 ->addColumn('opsi', function ($query) {
+                    $x = '';
                     // $data = $query->find($query->id)->firstOrFail();
                     // $data = Iku::where('id', $query->id)->first();
                     // $preview = route('detail-kinerja', $query->id);
-                    return '<!-- sample modal content -->
+                    if ($query->FLAG_KOMPONEN == 'SATU_KOMPONEN') {
+                        $x .= '<div class="d-inline-flex">
+                    
+
+                    
+                                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                    <!-- sample modal content -->
                                 <div id="myModal_' . $query->id . '" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
@@ -50,11 +57,17 @@ class FrontendController extends Controller
                                             <label  for="NamaIKU">Nama IKU</label>
                                             <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
 
+                                            <label class="mt-2" for="DefinisiIKU">Definisi IKU</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->DEFINISI_IKU . '" disabled></textarea>
+
+                                            <label class="mt-2" for="FormulaIKU">Formula IKU</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->FORMULA_IKU . '" disabled></textarea>
+
                                             <label class="mt-2" for="NamaIKU">Komponen Pengukuran</label>
                                             <textarea class="form-control" rows="3" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled></textarea>
 
 
-                                            <label class="mt-2" for="NamaIKU">Penjelasan IKU</label>
+                                            <label class="mt-2" for="NamaIKU">Penjelasan IKU / Komponen</label>
                                             <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_IKU_KOMPONEN . '" disabled></textarea>
 
                                             <label class="mt-2" for="NamaIKU">UIC</label>
@@ -63,50 +76,56 @@ class FrontendController extends Controller
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q1</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_1 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q1 . '" disabled>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q1</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN_1 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q1 . '" disabled>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q2</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_2 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q2 . '" disabled>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q2</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN_2 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q2 . '" disabled>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q3</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_3 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q3 . '" disabled>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q3</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN_3 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q3 . '" disabled>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q4</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_TARGET_4 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q4 . '" disabled>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q4</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->QUARTAL_CAPAIAN_4 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q4 . '" disabled>
                                             </div>
                                             </div>
                                            
 
                                              <label class="mt-2" for="NamaIKU">Penjelasan Capaian</label>
                                              <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_CAPAIAN . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">Kegiatan Yang Telah Dilaksanakan</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->KEGIATAN_YANG_TELAH_DILAKSANAKAN . '" disabled></textarea>
+
+                                             <label class="mt-2" for="NamaIKU">Rencana Aksi dan Target Penyelesaian Rencana Aksi</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI . '" disabled></textarea>
 
                                             <label class="mt-2" for="NamaIKU">Permasalahan</label>
                                               <textarea class="form-control" rows="3" placeholder="' . $query->PERMASALAHAN . '" disabled></textarea>
@@ -121,10 +140,126 @@ class FrontendController extends Controller
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <!-- /.modal -->
-                                <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><span class="mdi mdi-book-open mdi-dark"></span>
-</a>
                                 
+                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info"><i class="fa fas fa-eye"></i></button></a>
+                                                    </div>
+                    
+                    </div>
                 ';
+                    }
+                    if ($query->FLAG_KOMPONEN == 'MULTI_KOMPONEN') {
+                        $x .= '<div class="d-inline-flex">
+                    
+
+                    
+                                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                    <!-- sample modal content -->
+                                <div id="myModal_' . $query->id . '" class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 style="text-align-center" class="modal-title" id="myModalLabel">Detail Indikator Kinerja Utama</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                            <label  for="NamaIKU">Nama IKU</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
+
+                                            <label class="mt-2" for="DefinisiIKU">Definisi IKU</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->DEFINISI_IKU . '" disabled></textarea>
+
+                                            <label class="mt-2" for="FormulaIKU">Formula IKU</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->FORMULA_IKU . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">Komponen Pengukuran</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled></textarea>
+
+
+                                            <label class="mt-2" for="NamaIKU">Penjelasan IKU / Komponen</label>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_IKU_KOMPONEN . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">UIC</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->UIC . '" disabled>
+
+                                            <div class="row">
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Target Q1</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q1 . '" disabled>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Capaian Q1</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q1 . '" disabled>
+                                            </div>
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Target Q2</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q2 . '" disabled>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Capaian Q2</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q2 . '" disabled>
+                                            </div>
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Target Q3</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q3 . '" disabled>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Capaian Q3</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q3 . '" disabled>
+                                            </div>
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Target Q4</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q4 . '" disabled>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Capaian Q4</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q4 . '" disabled>
+                                            </div>
+                                            </div>
+                                           
+
+                                             <label class="mt-2" for="NamaIKU">Penjelasan Capaian</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_CAPAIAN . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">Kegiatan Yang Telah Dilaksanakan</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->KEGIATAN_YANG_TELAH_DILAKSANAKAN . '" disabled></textarea>
+
+                                             <label class="mt-2" for="NamaIKU">Rencana Aksi dan Target Penyelesaian Rencana Aksi</label>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI . '" disabled></textarea>
+
+                                            <label class="mt-2" for="NamaIKU">Permasalahan</label>
+                                              <textarea class="form-control" rows="3" placeholder="' . $query->PERMASALAHAN . '" disabled></textarea>
+                                               
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                                
+                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info"><i class="fa fas fa-eye"></i></button></a>
+                                                        
+                                                        <a href="#"><button type="button" class="ml-1 btn btn-warning"><i class="fas fa-eye"></i></button></a>
+                                                        
+                                                    </div>
+                    
+                    </div>
+                ';
+                    };
+                    return '' . $x . '';
                 })
                 ->rawColumns(['opsi'])
                 ->addIndexColumn()

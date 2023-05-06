@@ -53,6 +53,7 @@ return new class extends Migration
             $table->unsignedFloat('CAPAIAN_Q4_KOMPONEN')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('ID_IKU_MULTI_KOMPONEN')->references('id')->on('iku')->onDelete('cascade');
         });
     }
 

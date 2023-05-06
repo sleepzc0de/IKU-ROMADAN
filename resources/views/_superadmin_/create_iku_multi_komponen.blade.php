@@ -3,7 +3,7 @@
 @section('content')
  <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title text-center mb-3">Tambah IKU Satu Komponen</h4>
+                                <h4 class="card-title text-center mb-3">Tambah IKU Multi Komponen</h4>
                                  @include('_superadmin_.layouts.session_notif')
                                 <form action="{{route('multi_komponen.store')}}" class="needs-validation" method="POST" novalidate>
                                     @csrf
@@ -151,7 +151,7 @@
                                   <button class="btn btn-block btn-primary mt-4" type="submit">Kirim</button>
                                   
                                 </form>
-                                <a href="{{route('_superadmin_.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
+                                <a href="{{route('home-admin.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
                             </div>
                     </div>
 @endsection

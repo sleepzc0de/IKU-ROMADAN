@@ -84,7 +84,7 @@
                                     </div>
                                   </div>
                                   <div class="form-row">
-                                    <div class="col-md-6 mb-3">
+                                   <div class="col-md-6 mb-3">
                                       <label for="validationTooltip01">TARGET Q2</label>
                                       <input step="any" name="TARGET_Q2" type="number" class="form-control" id="validationTooltip01" placeholder="0.0 (Koma Pake Titik)" required>
                                       <div class="valid-tooltip">
@@ -188,7 +188,7 @@
                                   <button class="btn btn-block btn-primary mt-4" type="submit">Kirim</button>
                                   
                                 </form>
-                                <a href="{{route('_superadmin_.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
+                                <a href="{{route('home-admin.index')}}"><button class="btn btn-block btn-danger mt-2" type="submit">Batal</button></a>
                             </div>
                     </div>
 @endsection
