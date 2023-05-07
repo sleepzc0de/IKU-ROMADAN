@@ -42,7 +42,7 @@
                                 <span class="hide-menu">Home</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="icon-Car-Wheel"></i>
                                 <span class="hide-menu">Capaian Kinerja </span>
@@ -74,7 +74,7 @@
                                 </li>
 
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-small-cap">
                             <i class="mdi mdi-dots-horizontal"></i>
