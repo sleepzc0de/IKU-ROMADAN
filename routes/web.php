@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DaftarKomponenController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MultiKomponenController;
 use App\Http\Controllers\SatuKomponenController;
@@ -26,6 +27,7 @@ Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1'])->name('kine
 Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2'])->name('kinerja_iku_q2');
 Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3'])->name('kinerja_iku_q3');
 Route::get('/kinerja-q4', [FrontendController::class, 'kinerja_Q4'])->name('kinerja_iku_q4');
+Route::get('/pengembang', [FrontendController::class, 'pengembang'])->name('tim-pengembang');
 
 
 
@@ -46,6 +48,7 @@ Route::group(['prefix' => '_superadmin_', 'middleware' => ['auth']], function ()
     Route::get('/create-multi-komponen-admin-iku', [AdminController::class, 'multi_komponen_iku_admin'])->middleware('auth')->name('multi_komponen_iku_admin');
     Route::get('/create-multi-komponen-admin-detail/{id}', [AdminController::class, 'multi_komponen_detail_admin'])->middleware('auth')->name('multi_komponen_detail_admin');
     Route::post('/create-multi-komponen-admin-detail', [AdminController::class, 'store_komponen_detail'])->middleware('auth')->name('multi_komponen_detail_admin_add');
+    Route::resource('daftar-komponen', DaftarKomponenController::class)->middleware('auth');
 });
 
 

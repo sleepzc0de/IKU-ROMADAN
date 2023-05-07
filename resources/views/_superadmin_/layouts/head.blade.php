@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}"> --}}
+    <link rel="icon" type="image/x-icon" href="https://oa.kemenkeu.go.id/favicon.ico">
     <title>Dashboard IKU Admin</title>
     <!-- Custom CSS -->
     <link href="{{asset('assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">

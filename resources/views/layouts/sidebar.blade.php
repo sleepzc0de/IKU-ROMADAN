@@ -32,10 +32,10 @@
                             <!-- End User Profile-->
                         </li>
                         <!-- User Profile-->
-                        {{-- <li class="nav-small-cap">
+                        <li class="nav-small-cap">
                             <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Personal</span>
-                        </li> --}}
+                            <span class="hide-menu">Menu</span>
+                        </li>
                          <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/')}}" aria-expanded="false">
                                 <i class="mdi mdi-content-paste"></i>
@@ -74,6 +74,17 @@
                                 </li>
 
                             </ul>
+                        </li>
+
+                        <li class="nav-small-cap">
+                            <i class="mdi mdi-dots-horizontal"></i>
+                            <span class="hide-menu">Other</span>
+                        </li>
+                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/pengembang')}}" aria-expanded="false">
+                                <i class="mdi mdi-content-paste"></i>
+                                <span class="hide-menu">Tim Pengembang</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>

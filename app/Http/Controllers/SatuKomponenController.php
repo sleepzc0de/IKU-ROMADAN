@@ -38,6 +38,9 @@ class SatuKomponenController extends Controller
                                             </div>
                                             <div class="modal-body">
 
+                                            <label  for="NamaIKU">Kode SS/IKU</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->KODE_SS . '" disabled>
+
                                             <label  for="NamaIKU">Nama IKU</label>
                                             <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
 
@@ -98,6 +101,17 @@ class SatuKomponenController extends Controller
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q4</label>
                                             <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q4 . '" disabled>
+                                            </div>
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Target Aktual</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_AKTUAL . '" disabled>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label class="mt-2" for="NamaIKU">Capaian Aktual</label>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_AKTUAL . '" disabled>
                                             </div>
                                             </div>
                                            
@@ -237,13 +251,13 @@ class SatuKomponenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $data = Iku::findOrFail($id);
-        // dd($data);
+    // public function show($id)
+    // {
+    //     $data = Iku::where('FLAG_KOMPONEN', 'SATU_KOMPONEN')->findOrFail($id);
+    //     // dd($data);
 
-        return view('_superadmin_.show', compact(['data']));
-    }
+    //     return view('_superadmin_.show', compact(['data']));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -254,9 +268,9 @@ class SatuKomponenController extends Controller
     public function edit($id)
     {
         // $kategori = ref_kategori::all();
-        $iku = Iku::findOrFail($id);
+        $iku = Iku::where('FLAG_KOMPONEN', 'SATU_KOMPONEN')->findOrFail($id);
         // dd($berita);
-        return view('_superadmin_.edit', compact(['iku']));
+        return view('_superadmin_.edit_iku_satu_komponen', compact(['iku']));
     }
 
     /**
@@ -274,28 +288,27 @@ class SatuKomponenController extends Controller
                 'KODE_SS' => 'required',
                 'SS' => 'required',
                 'IKU' => 'required',
+                'DEFINISI_IKU' => 'required',
+                'FORMULA_IKU' => 'required',
                 'KOMPONEN_PENGUKURAN' => 'required',
                 'PENJELASAN_IKU_KOMPONEN' => 'required',
                 'UIC' => 'required',
-                'QUARTAL_TARGET_1' => 'required',
-                'QUARTAL_CAPAIAN_1' => 'required',
-                'QUARTAL_TARGET_2' => 'required',
-                'QUARTAL_CAPAIAN_2' => 'required',
-                'QUARTAL_TARGET_3' => 'required',
-                'QUARTAL_CAPAIAN_3' => 'required',
-                'QUARTAL_TARGET_4' => 'required',
-                'QUARTAL_CAPAIAN_4' => 'required',
-                'PENJELASAN_CAPAIAN' => 'required',
-                'TARGET_SEMESTERAN' => 'required',
-                'CAPAIAN_SEMESTERAN' => 'required',
-                'TARGET_SEMESTERAN' => 'required',
-                'TARGET_TAHUNAN' => 'required',
-                'CAPAIAN_TAHUNAN' => 'required',
+                'TARGET_Q1' => 'required',
+                'TARGET_Q2' => 'required',
+                'TARGET_Q3' => 'required',
+                'TARGET_Q4' => 'required',
+                'CAPAIAN_Q1' => 'required',
+                'CAPAIAN_Q2' => 'required',
+                'CAPAIAN_Q3' => 'required',
+                'CAPAIAN_Q4' => 'required',
                 'TARGET_AKTUAL' => 'required',
                 'CAPAIAN_AKTUAL' => 'required',
+                'PENJELASAN_CAPAIAN' => 'required',
                 'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => 'required',
                 'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => 'required',
                 'PERMASALAHAN' => 'required',
+
+
             ]);
 
             // TAMPUNGAN REQUEST DATA DARI FORM
@@ -303,28 +316,26 @@ class SatuKomponenController extends Controller
                 'KODE_SS' => $request->KODE_SS,
                 'SS' => $request->SS,
                 'IKU' => $request->IKU,
+                'DEFINISI_IKU' => $request->DEFINISI_IKU,
+                'FORMULA_IKU' => $request->FORMULA_IKU,
                 'KOMPONEN_PENGUKURAN' => $request->KOMPONEN_PENGUKURAN,
                 'PENJELASAN_IKU_KOMPONEN' => $request->PENJELASAN_IKU_KOMPONEN,
                 'UIC' => $request->UIC,
-                'QUARTAL_TARGET_1' => $request->QUARTAL_TARGET_1,
-                'QUARTAL_CAPAIAN_1' => $request->QUARTAL_CAPAIAN_1,
-                'QUARTAL_TARGET_2' => $request->QUARTAL_TARGET_2,
-                'QUARTAL_CAPAIAN_2' => $request->QUARTAL_CAPAIAN_2,
-                'QUARTAL_TARGET_3' => $request->QUARTAL_TARGET_3,
-                'QUARTAL_CAPAIAN_3' => $request->QUARTAL_CAPAIAN_3,
-                'QUARTAL_TARGET_4' => $request->QUARTAL_TARGET_4,
-                'QUARTAL_CAPAIAN_4' => $request->QUARTAL_CAPAIAN_4,
-                'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
-                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
-                'CAPAIAN_SEMESTERAN' => $request->CAPAIAN_SEMESTERAN,
-                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
-                'TARGET_TAHUNAN' => $request->TARGET_TAHUNAN,
-                'CAPAIAN_TAHUNAN' => $request->CAPAIAN_TAHUNAN,
+                'TARGET_Q1' => $request->TARGET_Q1,
+                'TARGET_Q2' => $request->TARGET_Q2,
+                'TARGET_Q3' => $request->TARGET_Q3,
+                'TARGET_Q4' => $request->TARGET_Q4,
+                'CAPAIAN_Q1' => $request->CAPAIAN_Q1,
+                'CAPAIAN_Q2' => $request->CAPAIAN_Q2,
+                'CAPAIAN_Q3' => $request->CAPAIAN_Q3,
+                'CAPAIAN_Q4' => $request->CAPAIAN_Q4,
                 'TARGET_AKTUAL' => $request->TARGET_AKTUAL,
                 'CAPAIAN_AKTUAL' => $request->CAPAIAN_AKTUAL,
+                'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
                 'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => $request->KEGIATAN_YANG_TELAH_DILAKSANAKAN,
                 'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => $request->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI,
                 'PERMASALAHAN' => $request->PERMASALAHAN,
+                'FLAG_KOMPONEN' => 'SATU_KOMPONEN'
 
             ];
 
@@ -345,7 +356,7 @@ class SatuKomponenController extends Controller
     public function destroy($id)
     {
         try {
-            Iku::findOrFail($id)->delete();
+            Iku::where('FLAG_KOMPONEN', 'SATU_KOMPONEN')->findOrFail($id)->delete();
             return redirect()->route('home-admin.index')->with('success', "IKU berhasil dihapus!");
         } catch (Exception $e) {
             return redirect()->route('home-admin.index')->with(['failed' => 'Data Yang Dihapus Tidak Ada ! error :' . $e->getMessage()]);

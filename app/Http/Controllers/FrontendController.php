@@ -318,8 +318,13 @@ class FrontendController extends Controller
         return view('kinerjaQ4');
     }
 
-    public function testframe()
+    // public function testframe()
+    // {
+    //     return view('test');
+    // }
+
+    public function pengembang()
     {
-        return view('test');
+        return view('pengembang');
     }
 }

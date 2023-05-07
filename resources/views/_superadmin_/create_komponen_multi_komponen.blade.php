@@ -5,10 +5,10 @@
                             <div class="card-body">
                                 <h4 class="card-title text-center mb-3">Tambah Detail Multi Komponen</h4>
                                  @include('_superadmin_.layouts.session_notif')
-                                <form action="{{route('multi_komponen_detail_admin_add')}}" class="needs-validation" method="POST" novalidate>
+                                <form action="{{route('daftar-komponen.store')}}" class="needs-validation" method="POST" novalidate>
                                     @csrf
                                   <div class="form-row">
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-12 mb-3" hidden>
                                       <label for="validationTooltip01">ID IKU KOMPONEN</label>
                                       <input value="{{$data->id}}" name="ID_IKU_MULTI_KOMPONEN" type="text" class="form-control" id="ID_IKU_MULTI_KOMPONEN" required readonly>
                                       <div class="valid-tooltip">

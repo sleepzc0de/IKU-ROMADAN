@@ -16,6 +16,7 @@ class Iku extends Model
 
     public function komponen()
     {
-        return $this->hasMany(Komponen::class);
+        // return $this->hasMany(Komponen::class);
+        return $this->belongsToMany(Komponen::class);
     }
 }

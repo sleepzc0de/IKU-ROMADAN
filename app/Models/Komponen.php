@@ -15,6 +15,7 @@ class Komponen extends Model
 
     public function iku()
     {
-        return $this->belongsTo(Iku::class, 'ID_IKU_MULTI_KOMPONEN');
+        // return $this->belongsTo(Iku::class, 'ID_IKU_MULTI_KOMPONEN');
+        return $this->belongsToMany(Iku::class, 'ID_IKU_MULTI_KOMPONEN');
     }
 }

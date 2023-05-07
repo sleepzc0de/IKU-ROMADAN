@@ -38,7 +38,7 @@
                                     <div class="tab-content br-n pn">
                                         <div id="satu-komponen" class="tab-pane active">
                                             <div class="row">
-<div class="table-responsive">
+                                    <div class="table-responsive">
                                     <table id="satu_komponen" class="table table-striped table-bordered w-100" style="text-align: center">
                                         <thead >
                                             <tr>

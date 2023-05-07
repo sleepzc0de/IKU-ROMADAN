@@ -2,7 +2,7 @@
             <!-- ============================================================== -->
             <footer class="footer text-center">
                 Biro Manajemen BMN dan Pengadaan. Powered by
-                <a href="https://wrappixel.com">MTDI</a>.
+                <a href="{{url('/pengembang')}}">MTDI</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
