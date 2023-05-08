@@ -1,4 +1,4 @@
-@extends('_superadmin_.layouts.master')
+@extends('layouts.master')
 @section('css')
  <link href="{{asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
 @endsection
@@ -10,7 +10,6 @@
                         <div class="card">
                             <div class="card-body text-center">
                             <h1>Daftar Komponen</h1>
-                            @include('_superadmin_.layouts.session_notif')
                             </div>
                             <div class="card-body">
                                 <h6>Kode IKU :  {{$data->KODE_SS ?? 'KODE IKU KOSONG'}}</h6>
