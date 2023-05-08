@@ -139,13 +139,13 @@ class SatuKomponenController extends Controller
                                 </div>
                                 <!-- /.modal -->
                                 
-                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info"><i class="fa fas fa-eye"></i></button></a>
+                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info" data-toggle="tooltip" data-placement="top" title="Preview IKU"><i class="fa fas fa-eye"></i></button></a>
                                                         
-                                                        <a href="' . $edit . '"><button type="button" class="ml-1 btn btn-warning"><i class="fas fa-pencil-alt"></i></button></a>
+                                                        <a href="' . $edit . '"><button type="button" class="ml-1 btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pencil-alt"></i></button></a>
                                                         <form action="' . $hapus . '" method="POST">
 													' . @csrf_field() . '
 													' . @method_field('DELETE') . '
-													 <button type="submit" class="ml-1 btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+													 <button type="submit" class="ml-1 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash-alt"></i></button>
 													</form>
                                                     </div>
                     
@@ -339,7 +339,7 @@ class SatuKomponenController extends Controller
 
             ];
 
-            Iku::findOrFail($id)->update($data);
+            Iku::where('FLAG_KOMPONEN', 'SATU_KOMPONEN')->findOrFail($id)->update($data);
             // $berita = Berita::find($id)->update($data);
             return redirect()->route('home-admin.index')->with('success', "IKU berhasil diupdate!");
         } catch (Exception $e) {

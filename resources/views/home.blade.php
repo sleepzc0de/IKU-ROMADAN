@@ -40,15 +40,7 @@
                                         <tbody>
                                             
                                         </tbody>
-                                        {{-- <tfoot>
-                                            <tr>
-                                                <th>KODE SS/IKU</th>
-                                                <th>SS</th>
-                                                <th>IKU</th>
-                                                <th>TARGET Q1</th>
-                                                <th>REALISASI Q1</th>
-                                            </tr>
-                                        </tfoot> --}}
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -108,7 +100,7 @@
                         saveAsImage : {show: true}
                     }
                 },
-                color: ["#ff9229", "#76f74f"],
+                color: ["#d6d302", "#009926"],
                 calculable : true,
                 xAxis : [
                     {
@@ -203,6 +195,7 @@ $('#zero_config').DataTable({
             scrollCollapse: true,
             paging: false,
             searching:false,
+            order: [[0, 'asc']],
             processing: true,
             serverSide: true,
             ajax: "{{ route('grafik.iku') }}",

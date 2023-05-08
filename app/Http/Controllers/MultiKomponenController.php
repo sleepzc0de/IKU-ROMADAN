@@ -20,6 +20,7 @@ class MultiKomponenController extends Controller
         if (request()->ajax()) {
             return datatables()->of($query)
                 ->addColumn('opsi', function ($query) {
+
                     $preview = route('multi_komponen.show', $query->id);
                     $daftar_komponen = route('daftar-komponen.show', $query->id);
                     $edit = route('multi_komponen.edit', $query->id);
@@ -41,94 +42,93 @@ class MultiKomponenController extends Controller
                                             <div class="modal-body">
 
                                             <label  for="NamaIKU">Kode SS/IKU</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->KODE_SS . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->KODE_SS . '" readonly>
 
                                             <label  for="NamaIKU">Nama IKU</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->IKU . '" readonly>
 
                                             <label class="mt-2" for="DefinisiIKU">Definisi IKU</label>
-                                            <textarea class="form-control" rows="3" placeholder="' . $query->DEFINISI_IKU . '" disabled></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->DEFINISI_IKU . '" readonly></textarea>
 
                                             <label class="mt-2" for="FormulaIKU">Formula IKU</label>
-                                            <textarea class="form-control" rows="3" placeholder="' . $query->FORMULA_IKU . '" disabled></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->FORMULA_IKU . '" readonly></textarea>
 
                                             <label class="mt-2" for="NamaIKU">Komponen Pengukuran</label>
-                                            <textarea class="form-control" rows="3" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" disabled></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->KOMPONEN_PENGUKURAN . '" readonly></textarea>
 
 
                                             <label class="mt-2" for="NamaIKU">Penjelasan IKU / Komponen</label>
-                                            <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_IKU_KOMPONEN . '" disabled></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_IKU_KOMPONEN . '" readonly></textarea>
 
                                             <label class="mt-2" for="NamaIKU">UIC</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->UIC . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->UIC . '" readonly>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q1</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q1 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q1 . '" readonly>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q1</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q1 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q1 . '" readonly>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q2</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q2 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q2 . '" readonly>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q2</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q2 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q2 . '" readonly>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q3</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q3 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q3 . '" readonly>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q3</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q3 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q3 . '" readonly>
                                             </div>
                                             </div>
 
                                             <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Q4</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q4 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_Q4 . '" readonly>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Q4</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q4 . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_Q4 . '" readonly>
                                             </div>
                                             </div>
-
                                              <div class="row">
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Target Aktual</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_AKTUAL . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->TARGET_AKTUAL . '" readonly>
                                             </div>
                                             <div class="col-lg-6">
                                             <label class="mt-2" for="NamaIKU">Capaian Aktual</label>
-                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_AKTUAL . '" disabled>
+                                            <input type="text" class="form-control" id="NamaIKU" placeholder="' . $query->CAPAIAN_AKTUAL . '" readonly>
                                             </div>
                                             </div>
-                                           
-
+                                           <!--
                                              <label class="mt-2" for="NamaIKU">Penjelasan Capaian</label>
-                                             <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_CAPAIAN . '" disabled></textarea>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->PENJELASAN_CAPAIAN . '" readonly></textarea>
 
                                             <label class="mt-2" for="NamaIKU">Kegiatan Yang Telah Dilaksanakan</label>
-                                             <textarea class="form-control" rows="3" placeholder="' . $query->KEGIATAN_YANG_TELAH_DILAKSANAKAN . '" disabled></textarea>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->KEGIATAN_YANG_TELAH_DILAKSANAKAN . '" readonly></textarea>
 
                                              <label class="mt-2" for="NamaIKU">Rencana Aksi dan Target Penyelesaian Rencana Aksi</label>
-                                             <textarea class="form-control" rows="3" placeholder="' . $query->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI . '" disabled></textarea>
+                                             <textarea class="form-control" rows="3" placeholder="' . $query->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI . '" readonly></textarea>
 
                                             <label class="mt-2" for="NamaIKU">Permasalahan</label>
-                                              <textarea class="form-control" rows="3" placeholder="' . $query->PERMASALAHAN . '" disabled></textarea>
+                                              <textarea class="form-control" rows="3" placeholder="' . $query->PERMASALAHAN . '" readonly></textarea>
+                                              --!>
                                                
                                             </div>
                                             <div class="modal-footer">
@@ -141,17 +141,17 @@ class MultiKomponenController extends Controller
                                 </div>
                                 <!-- /.modal -->
                                 
-                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info"><i class="fa fas fa-eye"></i></button></a>
+                                 <a href="#" alt="default" data-toggle="modal" data-target="#myModal_' . $query->id . '" class="model_img img-fluid"><button type="button" class="ml-1 btn btn-info" data-toggle="tooltip" data-placement="top" title="Preview IKU"><i class="fa fas fa-eye"></i></button></a>
 
-                                 <a href="' . $daftar_komponen . '"><button type="button" class="ml-1 btn btn-success"><i class="fa fas fa-eye"></i></button></a>
+                                 <a href="' . $daftar_komponen . '"><button type="button" class="ml-1 btn btn-success" data-toggle="tooltip" data-placement="top" title="Preview Daftar Komponen"><i class="fa fas fa-eye"></i></button></a>
                                                         
-                                                        <a href="' . $edit . '"><button type="button" class="ml-1 btn btn-warning"><i class="fas fa-pencil-alt"></i></button></a>
+                                                        <a href="' . $edit . '"><button type="button" class="ml-1 btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-pencil-alt"></i></button></a>
                                                         <form action="' . $hapus . '" method="POST">
 													' . @csrf_field() . '
 													' . @method_field('DELETE') . '
-													 <button type="submit" class="ml-1 btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+													 <button type="submit" class="ml-1 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash-alt"></i></button>
 													</form>
-                                                    <a href="' . $addkomponen . '"><button type="button" class="ml-1 btn btn-secondary"><i class="mr-1 fa fas fa-plus"></i>Komponen</button></a>
+                                                    <a href="' . $addkomponen . '"><button type="button" class="ml-1 btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tambah Komponen"><i class="mr-1 fa fas fa-plus"></i>Komponen</button></a>
                                                     </div>
                     
                     </div>
@@ -256,13 +256,13 @@ class MultiKomponenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $data = Iku::findOrFail($id);
-        // dd($data);
+    // public function show($id)
+    // {
+    //     $data = Iku::findOrFail($id);
+    //     // dd($data);
 
-        return view('_superadmin_.show', compact(['data']));
-    }
+    //     return view('_superadmin_.show', compact(['data']));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -273,9 +273,9 @@ class MultiKomponenController extends Controller
     public function edit($id)
     {
         // $kategori = ref_kategori::all();
-        $iku = Iku::findOrFail($id);
+        $iku = Iku::where('FLAG_KOMPONEN', 'MULTI_KOMPONEN')->findOrFail($id);
         // dd($berita);
-        return view('_superadmin_.edit', compact(['iku']));
+        return view('_superadmin_.edit_iku_multi_komponen', compact(['iku']));
     }
 
     /**
@@ -293,28 +293,27 @@ class MultiKomponenController extends Controller
                 'KODE_SS' => 'required',
                 'SS' => 'required',
                 'IKU' => 'required',
+                'DEFINISI_IKU' => 'required',
+                'FORMULA_IKU' => 'required',
                 'KOMPONEN_PENGUKURAN' => 'required',
                 'PENJELASAN_IKU_KOMPONEN' => 'required',
                 'UIC' => 'required',
-                'QUARTAL_TARGET_1' => 'required',
-                'QUARTAL_CAPAIAN_1' => 'required',
-                'QUARTAL_TARGET_2' => 'required',
-                'QUARTAL_CAPAIAN_2' => 'required',
-                'QUARTAL_TARGET_3' => 'required',
-                'QUARTAL_CAPAIAN_3' => 'required',
-                'QUARTAL_TARGET_4' => 'required',
-                'QUARTAL_CAPAIAN_4' => 'required',
-                'PENJELASAN_CAPAIAN' => 'required',
-                'TARGET_SEMESTERAN' => 'required',
-                'CAPAIAN_SEMESTERAN' => 'required',
-                'TARGET_SEMESTERAN' => 'required',
-                'TARGET_TAHUNAN' => 'required',
-                'CAPAIAN_TAHUNAN' => 'required',
+                'TARGET_Q1' => 'required',
+                'TARGET_Q2' => 'required',
+                'TARGET_Q3' => 'required',
+                'TARGET_Q4' => 'required',
+                'CAPAIAN_Q1' => 'required',
+                'CAPAIAN_Q2' => 'required',
+                'CAPAIAN_Q3' => 'required',
+                'CAPAIAN_Q4' => 'required',
                 'TARGET_AKTUAL' => 'required',
                 'CAPAIAN_AKTUAL' => 'required',
-                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => 'required',
-                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => 'required',
-                'PERMASALAHAN' => 'required',
+                // 'PENJELASAN_CAPAIAN' => 'required',
+                // 'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => 'required',
+                // 'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => 'required',
+                // 'PERMASALAHAN' => 'required',
+
+
             ]);
 
             // TAMPUNGAN REQUEST DATA DARI FORM
@@ -322,28 +321,26 @@ class MultiKomponenController extends Controller
                 'KODE_SS' => $request->KODE_SS,
                 'SS' => $request->SS,
                 'IKU' => $request->IKU,
+                'DEFINISI_IKU' => $request->DEFINISI_IKU,
+                'FORMULA_IKU' => $request->FORMULA_IKU,
                 'KOMPONEN_PENGUKURAN' => $request->KOMPONEN_PENGUKURAN,
                 'PENJELASAN_IKU_KOMPONEN' => $request->PENJELASAN_IKU_KOMPONEN,
                 'UIC' => $request->UIC,
-                'QUARTAL_TARGET_1' => $request->QUARTAL_TARGET_1,
-                'QUARTAL_CAPAIAN_1' => $request->QUARTAL_CAPAIAN_1,
-                'QUARTAL_TARGET_2' => $request->QUARTAL_TARGET_2,
-                'QUARTAL_CAPAIAN_2' => $request->QUARTAL_CAPAIAN_2,
-                'QUARTAL_TARGET_3' => $request->QUARTAL_TARGET_3,
-                'QUARTAL_CAPAIAN_3' => $request->QUARTAL_CAPAIAN_3,
-                'QUARTAL_TARGET_4' => $request->QUARTAL_TARGET_4,
-                'QUARTAL_CAPAIAN_4' => $request->QUARTAL_CAPAIAN_4,
-                'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
-                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
-                'CAPAIAN_SEMESTERAN' => $request->CAPAIAN_SEMESTERAN,
-                'TARGET_SEMESTERAN' => $request->TARGET_SEMESTERAN,
-                'TARGET_TAHUNAN' => $request->TARGET_TAHUNAN,
-                'CAPAIAN_TAHUNAN' => $request->CAPAIAN_TAHUNAN,
+                'TARGET_Q1' => $request->TARGET_Q1,
+                'TARGET_Q2' => $request->TARGET_Q2,
+                'TARGET_Q3' => $request->TARGET_Q3,
+                'TARGET_Q4' => $request->TARGET_Q4,
+                'CAPAIAN_Q1' => $request->CAPAIAN_Q1,
+                'CAPAIAN_Q2' => $request->CAPAIAN_Q2,
+                'CAPAIAN_Q3' => $request->CAPAIAN_Q3,
+                'CAPAIAN_Q4' => $request->CAPAIAN_Q4,
                 'TARGET_AKTUAL' => $request->TARGET_AKTUAL,
                 'CAPAIAN_AKTUAL' => $request->CAPAIAN_AKTUAL,
-                'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => $request->KEGIATAN_YANG_TELAH_DILAKSANAKAN,
-                'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => $request->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI,
-                'PERMASALAHAN' => $request->PERMASALAHAN,
+                // 'PENJELASAN_CAPAIAN' => $request->PENJELASAN_CAPAIAN,
+                // 'KEGIATAN_YANG_TELAH_DILAKSANAKAN' => $request->KEGIATAN_YANG_TELAH_DILAKSANAKAN,
+                // 'RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI' => $request->RENCANA_AKSI_DAN_TARGET_PENYELESAIAN_RENCANA_AKSI,
+                // 'PERMASALAHAN' => $request->PERMASALAHAN,
+                'FLAG_KOMPONEN' => 'MULTI_KOMPONEN'
 
             ];
 
