@@ -36,12 +36,12 @@
                             <i class="mdi mdi-dots-horizontal"></i>
                             <span class="hide-menu">Menu</span>
                         </li>
-                         <li class="sidebar-item">
+                         {{-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/')}}" aria-expanded="false">
                                 <i class="mdi mdi-content-paste"></i>
                                 <span class="hide-menu">Home</span>
                             </a>
-                        </li>
+                        </li> --}}
                         {{-- <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="icon-Car-Wheel"></i>
@@ -75,6 +75,33 @@
 
                             </ul>
                         </li> --}}
+                         <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-Car-Wheel"></i>
+                                <span class="hide-menu">Home </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                {{-- <li class="sidebar-item">
+                                    <a href="{{route('capaian-perspective')}}" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> Capaian Perspective </span>
+                                    </a>
+                                </li> --}}
+                               <li class="sidebar-item">
+                                    <a href="{{route('capaian-sasaran')}}" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> Capaian Strategis </span>
+                                    </a>
+                                </li>
+                                 <li class="sidebar-item">
+                                    <a href="{{route('grafik.iku')}}" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> Daftar Iku </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
                         <li class="nav-small-cap">
                             <i class="mdi mdi-dots-horizontal"></i>

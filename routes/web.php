@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CapaianSasaranStrategisController;
 use App\Http\Controllers\DaftarKomponenController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MultiKomponenController;
@@ -23,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 // FRONTENDS
 // Route::get('/testframe', [FrontendController::class, 'testframe'])->name('frametest');
 Route::get('/', [FrontendController::class, 'grafik'])->name('grafik.iku');
+// Route::get('/daftar-iku', [FrontendController::class, 'grafik'])->name('daftar-iku');
+Route::get('/capaian-sasaran', [FrontendController::class, 'capaian_sasaran'])->name('capaian-sasaran');
+Route::get('/capaian-perspective', [FrontendController::class, 'capaian_perspective'])->name('capaian-perspective');
+
 Route::get('/daftar-komponen/{id}', [FrontendController::class, 'show'])->name('daftar-komponen-fe');
 // Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1'])->name('kinerja_iku_q1');
 // Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2'])->name('kinerja_iku_q2');
@@ -43,6 +48,7 @@ Route::get('/pengembang', [FrontendController::class, 'pengembang'])->name('tim-
 Route::group(['prefix' => '_superadmin_', 'middleware' => ['auth']], function () {
 
     Route::resource('home-admin', AdminController::class)->middleware('auth');
+    Route::resource('capaian-sasaran-strategis', CapaianSasaranStrategisController::class)->middleware('auth');
     Route::resource('satu_komponen', SatuKomponenController::class)->middleware('auth');
     Route::resource('multi_komponen', MultiKomponenController::class)->middleware('auth');
     Route::get('/create-satu-komponen-admin-iku', [AdminController::class, 'satu_komponen_iku_admin'])->middleware('auth')->name('satu_komponen_iku_admin');

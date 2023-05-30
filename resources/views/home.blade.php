@@ -8,7 +8,7 @@
 
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body analytics-info">
@@ -19,12 +19,24 @@
                     </div>
 
                  
-</div>
+</div> --}}
 <!-- basic table -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                <div class="text-right mr-5"> <!-- Example single danger button -->
+                                        <div class="btn-group mr-5">
+                                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                2023
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{route('grafik.iku')}}">Tahun 2023</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="text-center"><h4><b>DAFTAR INDIKATOR KINERJA UTAMA (IKU)<br>
+                                    BIRO MANAJEMEN BMN DAN PENGADAAN</b></h4></div>
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered" style="text-align: center">
                                         <thead >

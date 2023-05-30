@@ -30,6 +30,12 @@
                                 <span class="hide-menu">IKU</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('capaian-sasaran-strategis.index')}}" aria-expanded="false">
+                                <i class="mdi mdi-content-paste"></i>
+                                <span class="hide-menu">CAPAIAN SASARAN STRATEGIS</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

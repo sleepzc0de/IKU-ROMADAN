@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CapaianSasaranModel;
 use App\Models\Iku;
 use App\Models\Komponen;
 use Illuminate\Http\Request;
@@ -258,6 +259,21 @@ class FrontendController extends Controller
         }
 
         return view('home', compact(['target', 'capaian', 'grafik', 'label_iku']));
+    }
+
+    public function capaian_sasaran()
+    {
+        $capaian = CapaianSasaranModel::all();
+
+        $capaian_strategis = $capaian->mapWithKeys(function ($item, $key) {
+            return [$item->NAMA_CAPAIAN => $item->NILAI_CAPAIAN];
+        });
+        // dd($capaian_strategis);
+        return view('capaian_sasaran', compact('capaian_strategis', 'capaian'));
+    }
+    public function capaian_perspective()
+    {
+        return view('capaian_perspective');
     }
 
 
