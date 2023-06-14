@@ -87,12 +87,18 @@
                                         <span class="hide-menu"> Capaian Perspective </span>
                                     </a>
                                 </li> --}}
-                               <li class="sidebar-item">
-                                    <a href="{{route('capaian-sasaran')}}" class="sidebar-link">
+                                  <li class="sidebar-item">
+                                    <a href="{{route('capaian-sasaran-new')}}" class="sidebar-link">
                                         <i class="icon-Record"></i>
                                         <span class="hide-menu"> Capaian Strategis </span>
                                     </a>
                                 </li>
+                               {{-- <li class="sidebar-item">
+                                    <a href="{{route('capaian-sasaran')}}" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu"> Capaian Strategis </span>
+                                    </a>
+                                </li> --}}
                                  <li class="sidebar-item">
                                     <a href="{{route('grafik.iku')}}" class="sidebar-link">
                                         <i class="icon-Record"></i>

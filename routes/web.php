@@ -25,10 +25,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/testframe', [FrontendController::class, 'testframe'])->name('frametest');
 Route::get('/', [FrontendController::class, 'grafik'])->name('grafik.iku');
 // Route::get('/daftar-iku', [FrontendController::class, 'grafik'])->name('daftar-iku');
-Route::get('/capaian-sasaran', [FrontendController::class, 'capaian_sasaran'])->name('capaian-sasaran');
+// Route::get('/capaian-sasaran', [FrontendController::class, 'capaian_sasaran'])->name('capaian-sasaran');
 Route::get('/capaian-perspective', [FrontendController::class, 'capaian_perspective'])->name('capaian-perspective');
 
 Route::get('/daftar-komponen/{id}', [FrontendController::class, 'show'])->name('daftar-komponen-fe');
+
+Route::get('/capaian-sasaran-strategis', [FrontendController::class, 'capaian_sasaran_new'])->name('capaian-sasaran-new');
 // Route::get('/kinerja-q1', [FrontendController::class, 'kinerja_Q1'])->name('kinerja_iku_q1');
 // Route::get('/kinerja-q2', [FrontendController::class, 'kinerja_Q2'])->name('kinerja_iku_q2');
 // Route::get('/kinerja-q3', [FrontendController::class, 'kinerja_Q3'])->name('kinerja_iku_q3');

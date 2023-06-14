@@ -271,6 +271,143 @@ class FrontendController extends Controller
         // dd($capaian_strategis);
         return view('capaian_sasaran', compact('capaian_strategis', 'capaian'));
     }
+
+    public function capaian_sasaran_new()
+    {
+        $judul1 = 'Pengelolaan Keuangan dan BMN yang Kredibel dan Akuntabel';
+        $judul2 = 'Pelayanan Publik yang Prima';
+        $judul3 = 'Penyediaan Data BMN dan Pengadaan Kemenkeu yang Akurat, Akuntabel, dan Berdaya Guna';
+        $judul4 = 'Penguatan Manajemen Pengelolaan BMN dan Pengadaan Kementerian Keuangan';
+        $judul5 = 'Pengelolaan BMN dan Pengadaan yang Memberi Nilai Tambah';
+        $judul6 = 'Organisasi dan SDM yang optimal';
+        $judul7 = 'Pengelolaan Keuangan yang Kredibel dan Akuntabel';
+        $judul8 = 'Sistem informasi yang andal';
+        $judul9 = 'Pengelolaan risiko, pengendalian, dan pengawasan internal yang bernilai tambah';
+        $new1 = Iku::orderBy('SS', 'ASC')->where('SS', $judul1)->get();
+        // dd($new1);
+        $new2 = Iku::orderBy('SS', 'ASC')->where('SS', $judul2)->get();
+        $new3 = Iku::orderBy('SS', 'ASC')->where('SS', $judul3)->get();
+        $new4 = Iku::orderBy('SS', 'ASC')->where('SS', $judul4)->get();
+        $new5 = Iku::orderBy('SS', 'ASC')->where('SS', $judul5)->get();
+        $new6 = Iku::orderBy('SS', 'ASC')->where('SS', $judul6)->get();
+        $new7 = Iku::orderBy('SS', 'ASC')->where('SS', $judul7)->get();
+        $new8 = Iku::orderBy('SS', 'ASC')->where('SS', $judul8)->get();
+        $new9 = Iku::orderBy('SS', 'ASC')->where('SS', $judul9)->get();
+
+        $new_all = Iku::select('SS')->distinct()->orderBy('SS', 'ASC')->get();
+        // dd($new_all);
+
+
+        // lABEL SS
+        $SS1 = $new1->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS2 = $new2->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS3 = $new3->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS4 = $new4->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS5 = $new5->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS6 = $new6->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS7 = $new7->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS8 = $new8->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        $SS9 = $new9->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->SS];
+        });
+        // CAPAIAN
+        $capaian1 = $new1->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian2 = $new2->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian3 = $new3->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian4 = $new4->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian5 = $new5->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian6 = $new6->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian7 = $new7->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian8 = $new8->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        $capaian9 = $new9->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->CAPAIAN_AKTUAL];
+        });
+        // TARGET
+        $target1 = $new1->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target2 = $new2->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target3 = $new3->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target4 = $new4->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target5 = $new5->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target6 = $new6->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target7 = $new7->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target8 = $new8->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        $target9 = $new9->mapWithKeys(function ($item, $key) {
+            return [$item->IKU => $item->TARGET_AKTUAL];
+        });
+        // dd($iku1);
+        return view('capaian_sasaran_new', compact([
+            'capaian1', 'target1',
+            'capaian2', 'target2',
+            'capaian3', 'target3',
+            'capaian4', 'target4',
+            'capaian5', 'target5',
+            'capaian6', 'target6',
+            'capaian7', 'target7',
+            'capaian8', 'target8',
+            'capaian9', 'target9',
+            'SS1', 'SS2',
+            'SS3', 'SS4',
+            'SS5', 'SS6',
+            'SS7', 'SS8',
+            'SS9',
+            'judul1', 'judul2',
+            'judul3', 'judul4',
+            'judul5', 'judul6',
+            'judul7', 'judul8',
+            'judul9', 'new_all'
+        ]));
+    }
+
+
+
     public function capaian_perspective()
     {
         return view('capaian_perspective');
